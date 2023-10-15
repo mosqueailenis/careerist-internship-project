@@ -1,8 +1,12 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 
 
 class Page:
+    EMAIL_INPUT = (By.CSS_SELECTOR, "input#username")
+    PASSWORD_INPUT = (By.CSS_SELECTOR, 'input#password')
+    LOGIN_BTN = (By.CSS_SELECTOR, "button[type='submit']")
 
     def __init__(self, driver):
         self.driver = driver
@@ -13,6 +17,23 @@ class Page:
 
     def find_element(self, *locator):
         return self.driver.find_element(*locator)
+
+    def enter_username(self, username):
+        username_field = self.driver.find_element(*self.EMAIL_INPUT)
+        username_field.send_keys(username)
+
+    def enter_password(self, password):
+        password_field = self.driver.find_element(*self.PASSWORD_INPUT)
+        password_field.send_keys(password)
+
+    def click_login_button(self):
+        login_button = self.driver.find_element(*self.LOGIN_BTN)
+        login_button.click()
+
+    def sign_in(self, username, password):
+        self.enter_username(username)
+        self.enter_password(password)
+        self.click_login_button()
 
     def input_text(self, text, *locator):
         e = self.driver.find_element(*locator)

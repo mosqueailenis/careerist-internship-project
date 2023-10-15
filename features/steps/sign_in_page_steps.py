@@ -4,13 +4,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
 
 
-@given ('Log in to the page')
-def log_in_page(context):
+@given('Log in to the page')
+def step_when_i_enter_username_and_password(context):
     username = "mosquea.ilenis@gmail.com"
     password = "Florida2015!!!"
+    context.app.sign_in_page.sign_in(username, password)
+    context.app.sign_in_page.verify_signin_opened()
 
-
-
-    username_input.send_keys(username)
-    password_input.send_keys(password)
-    login_button.click()
