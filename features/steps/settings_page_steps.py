@@ -1,5 +1,4 @@
 from behave import given, when, then
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
 
@@ -16,4 +15,18 @@ def step_click_edit_profile(context):
 
 @when('Enter some test information in the input fields')
 def step_enter_test_information(context):
-    context.app.settings_page.step_enter_test_information()
+    context.app.settings_page.enter_language_field()
+    sleep(1)
+
+
+@then('Check the right information is present in the input fields')
+def step_verify_entered_information(context):
+    context.app.settings_page.get_language_value()
+
+
+@then('Check the "Close" and "Save Changes" buttons clickable')
+def check_button_clickable(context):
+    context.app.settings_page.check_button_clickable()
+
+
+

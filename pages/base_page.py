@@ -7,6 +7,10 @@ class Page:
     EMAIL_INPUT = (By.CSS_SELECTOR, "input#username")
     PASSWORD_INPUT = (By.CSS_SELECTOR, 'input#password')
     LOGIN_BTN = (By.CSS_SELECTOR, "button[type='submit']")
+    COMPANY_INPUT = (By.CSS_SELECTOR, '[class="field-form-block w-input"][wized="companyInputProfile"]')
+    LANGUAGE_INPUT = (By.CSS_SELECTOR, 'input#Languages')
+    CLOSE_BUTTON = (By.CSS_SELECTOR, 'a[href="/settings"].close-button')
+    SAVE_CHANGES_BUTTON = (By.CSS_SELECTOR, 'div[w-el-onclick-0-0="8916f00b-660d-4595-97bc-e7e445cb0988-0-0"]')
 
     def __init__(self, driver):
         self.driver = driver
