@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 class SettingsPage(Page):
 
     LANGUAGE_Input = 'English'
-    SETTINGS_LINK = (By.CSS_SELECTOR, 'a.menu-button-block.w-inline-block[href="/settings"]')
+    SETTINGS_LINK = (By.XPATH, "//a[contains(@href, '/settings') and contains(@class, 'menu-button-block')]")
     EDIT_PROFILE_BTN = (By.CSS_SELECTOR, 'a[href="/profile-edit"].page-setting-block')
     LANGUAGE_INPUT = (By.CSS_SELECTOR, 'input#Languages')
     CLOSE_BUTTON = (By.CSS_SELECTOR, 'a[href="/settings"].close-button')
