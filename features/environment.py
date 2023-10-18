@@ -29,14 +29,14 @@ def browser_init(context):
  ### HEADLESS MODE ####
 
     options = webdriver.ChromeOptions()
-    # options.add_argument('--headless')
+    options.add_argument('--headless')
     service = Service(executable_path='/Users/ilenismosquea/Downloads/careerist-internship-project/chromedriver')
     context.driver = webdriver.Chrome(
         options=options,
         service=service
     )
 
-    context.driver.maximize_window()
+    context.driver.set_window_size(1920,1080)
     context.driver.implicitly_wait(4)
     context.driver.wait = WebDriverWait(context.driver, 10)
 
