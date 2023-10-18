@@ -19,14 +19,23 @@ class SignInPage(Page):
         login_button.click()
 
     def enter_username(self, username):
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(self.EMAIL_INPUT)
+        )
         username_field = self.driver.find_element(*self.EMAIL_INPUT)
         username_field.send_keys(username)
 
     def enter_password(self, password):
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(self.PASSWORD_INPUT)
+        )
         password_field = self.driver.find_element(*self.PASSWORD_INPUT)
         password_field.send_keys(password)
 
     def click_login_button(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(self.LOGIN_BTN)
+        )
         login_button = self.driver.find_element(*self.LOGIN_BTN)
         login_button.click()
 
@@ -35,8 +44,12 @@ class SignInPage(Page):
         self.enter_password(password)
         self.click_login_button()
 
-    def verify_signin_opened(self):
+    def verify_signin_email(self):
         WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, 'div.name_text_account'))
+            EC.presence_of_element_located(self.EMAIL_INPUT)
         )
 
+    def verify_signin_password(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(self.PASSWORD_INPUT)
+        )
