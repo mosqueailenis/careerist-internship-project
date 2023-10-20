@@ -44,8 +44,6 @@ class SignInPage(Page):
         login_button = self.driver.find_element(*self.LOGIN_BTN)
         login_button.click()
 
-
-
     def verify_signin_email(self):
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located(self.EMAIL_INPUT)

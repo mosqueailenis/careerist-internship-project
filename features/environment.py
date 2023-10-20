@@ -38,14 +38,37 @@ def browser_init(context):
 
     # Firefox #
 
-    service = Service(executable_path='/Users/ilenismosquea/Downloads/careerist-internship-project/geckodriver')
-    context.driver = webdriver.Firefox(service=service)
+    # service = Service(executable_path='/Users/ilenismosquea/Downloads/careerist-internship-project/geckodriver')
+    # context.driver = webdriver.Firefox(service=service)
+    #
+    # context.driver.set_window_size(1920,1080)
+    # context.driver.implicitly_wait(4)
+    # context.driver.wait = WebDriverWait(context.driver, 10)
+    # context.app = Application(context.driver)
 
-    context.driver.set_window_size(1920,1080)
+
+
+
+ ### BROWSERSTACK ###
+    # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
+    bs_user = 'ilenismosquea_gEX0wS'
+    bs_key = 'q6BsM4L9LqgPAv5GYpW2'
+    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+
+    options = Options()
+    bstack_options = {
+        'os': 'Windows',
+        'osVersion': '10',
+        'browserName': 'Edge',
+        'browserVersion': '115.0',
+        'sessionName': 'scenario_reelly'
+    }
+    options.set_capability('bstack:options', bstack_options)
+    context.driver = webdriver.Remote(command_executor=url, options=options)
+    context.app = Application(context.driver)
+    context.driver.set_window_size(1920, 1080)
     context.driver.implicitly_wait(4)
     context.driver.wait = WebDriverWait(context.driver, 10)
-
-    context.app = Application(context.driver)
 
 
 def before_scenario(context, scenario):
