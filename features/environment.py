@@ -12,29 +12,34 @@ def browser_init(context):
     """
     # service = Service(executable_path='/Users/ilenismosquea/QA/python-selenium-automation/chromedriver')
     # context.driver = webdriver.Chrome(service=service)
-
+    #
     # context.driver.maximize_window()
-
+    #
     # context.driver.implicitly_wait(4)
     # context.driver.wait = WebDriverWait(context.driver, 10)
-
+    #
     # context.app = Application(context.driver)
 
     # context.driver.maximize_window()
     # context.driver.implicitly_wait(4)
     # context.driver.wait = WebDriverWait(context.driver, 10)
-
+    #
     # context.app = Application(context.driver)
 
- ### HEADLESS MODE ####
+    ## HEADLESS MODE ####
 
-    options = webdriver.ChromeOptions()
-    options.add_argument('--headless')
-    service = Service(executable_path='/Users/ilenismosquea/Downloads/careerist-internship-project/chromedriver')
-    context.driver = webdriver.Chrome(
-        options=options,
-        service=service
-    )
+    # options = webdriver.ChromeOptions()
+    # options.add_argument('--headless')
+    # service = Service(executable_path='/Users/ilenismosquea/Downloads/careerist-internship-project/chromedriver')
+    # context.driver = webdriver.Chrome(
+    #     options=options,
+    #     service=service
+    # )
+
+    # Firefox #
+
+    service = Service(executable_path='/Users/ilenismosquea/Downloads/careerist-internship-project/geckodriver')
+    context.driver = webdriver.Firefox(service=service)
 
     context.driver.set_window_size(1920,1080)
     context.driver.implicitly_wait(4)

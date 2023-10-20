@@ -17,8 +17,8 @@ class SettingsPage(Page):
 
     def click_settings_option(self):
         WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located(self.SETTINGS_LINK)
-            )
+            EC.presence_of_element_located(self.SETTINGS_LINK)
+        )
         settings_option = self.driver.find_element(*self.SETTINGS_LINK)
         settings_option.click()
 
