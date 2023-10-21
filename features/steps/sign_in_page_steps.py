@@ -6,7 +6,6 @@ from time import sleep
 
 @given('Log in to the page')
 def step_when_i_enter_username_and_password(context):
-    sleep(1)
     username = "mosquea.ilenis@gmail.com"
     password = "Florida2015!!!"
     context.app.sign_in_page.sign_in(username, password)
