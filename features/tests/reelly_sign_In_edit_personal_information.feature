@@ -9,3 +9,4 @@ Feature: User sign in and edit personal information
     And Enter some test information in the input fields
     Then Check the right information is present in the input fields
     And Check the "Close" and "Save Changes" buttons clickable
+

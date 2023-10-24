@@ -3,6 +3,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from support.logger import logger
 
+
 class Page:
     EMAIL_INPUT = (By.CSS_SELECTOR, "input#username")
     PASSWORD_INPUT = (By.CSS_SELECTOR, 'input#password')

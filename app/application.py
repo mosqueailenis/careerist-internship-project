@@ -9,3 +9,4 @@ class Application:
         self.main_page = MainPage(driver)
         self.sign_in_page = SignInPage(driver)
         self.settings_page = SettingsPage(driver)
+
