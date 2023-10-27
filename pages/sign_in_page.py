@@ -5,9 +5,9 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class SignInPage(Page):
-    EMAIL_INPUT = (By.ID, 'email-2')
-    PASSWORD_INPUT = (By.CSS_SELECTOR, 'input[id="field"]')
-    LOGIN_BTN = (By.CSS_SELECTOR, "a.login-button.w-button")
+    EMAIL_INPUT = (By.ID, '#email-2')
+    PASSWORD_INPUT = (By.ID, '#field')
+    LOGIN_BTN = (By.CSS_SELECTOR, 'a[wized="loginButton"]')
 
     # def step_when_i_enter_username_and_password(self, username, password):
     #     username_field = self.driver.find_element(*self.EMAIL_INPUT)
@@ -18,10 +18,19 @@ class SignInPage(Page):
     #     password_field.send_keys(password)
     #     login_button.click()
 
-    def sign_in(self, username, password):
-        self.enter_username(username)
-        self.enter_password(password)
-        self.click_login_button()
+    def log_in_mobile_web(self, username, password):
+        username_field_mobile = self.driver.find_element(*self.EMAIL_INPUT)
+        password_field = self.driver.find_element(*self.PASSWORD_INPUT)
+        login_button = self.driver.find_element(*self.LOGIN_BTN)
+
+        username_field_mobile.send_keys(username)
+        password_field.send_keys(password)
+        login_button.click()
+
+    # def sign_in(self, username, password):
+    #     self.enter_username(username)
+    #     self.enter_password(password)
+    #     self.click_login_button()
 
     def enter_username(self, username):
         WebDriverWait(self.driver, 10).until(

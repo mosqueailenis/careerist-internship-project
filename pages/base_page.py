@@ -5,8 +5,8 @@ from support.logger import logger
 
 
 class Page:
-    EMAIL_INPUT = (By.CSS_SELECTOR, "input#username")
-    PASSWORD_INPUT = (By.CSS_SELECTOR, 'input#password')
+    EMAIL_INPUT = (By.ID, '#email-2')
+    PASSWORD_INPUT = (By.ID, '#field')
     LOGIN_BTN = (By.CSS_SELECTOR, "button[type='submit']")
     COMPANY_INPUT = (By.CSS_SELECTOR, '[class="field-form-block w-input"][wized="companyInputProfile"]')
     LANGUAGE_INPUT = (By.CSS_SELECTOR, 'input#Languages')

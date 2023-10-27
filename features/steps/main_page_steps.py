@@ -9,3 +9,8 @@ def open_main_page(context):
     context.app.main_page.open_main()
     sleep(2)
 
+
+@given('Open the main page mobile web')
+def open_main_page_mobile_web(context):
+    context.app.main_page.open_main()
+    sleep(2)
