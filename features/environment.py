@@ -52,54 +52,55 @@ def browser_init(context):
 
 
  ### BROWSERSTACK ###
-    # # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
-    # bs_user = 'ilenismosquea_gEX0wS'
-    # bs_key = 'q6BsM4L9LqgPAv5GYpW2'
-    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
-    #
-    # options = Options()
-    # bstack_options = {
-    #     'deviceName': 'Samsung Galaxy S23 Ultra',
-    #     "osVersion": "13.0",
-    #     'browserName': 'chrome',
-    #     "deviceOrientation": "portrait",
-    #     'sessionName': 'scenario_mobile'
-    #     # 'os': 'Windows',
-    #     # 'osVersion': '10',
-    #     # 'browserName': 'Edge',
-    #     # 'browserVersion': '115.0',
-    #     # 'sessionName': 'scenario_reelly'
-    # }
-    # options.set_capability('bstack:options', bstack_options)
-    # context.driver = webdriver.Remote(command_executor=url, options=options)
-    # context.app = Application(context.driver)
-    # context.driver.set_window_size(1920, 1080)
-    # context.driver.implicitly_wait(4)
-    # context.driver.wait = WebDriverWait(context.driver, 10)
+    # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
+    bs_user = 'ilenismosquea_gEX0wS'
+    bs_key = 'q6BsM4L9LqgPAv5GYpW2'
+    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+
+    options = Options()
+    bstack_options = {
+        "osVersion": "8.1",
+        "deviceName": "Samsung Galaxy Note 9",
+        "local": "false",
+        "debug": "true",
+        'browserName': 'Chrome',
+        'sessionName': 'scenario_name'
+        # 'os': 'Windows',
+        # 'osVersion': '10',
+        # 'browserName': 'Edge',
+        # 'browserVersion': '115.0',
+        # 'sessionName': 'scenario_reelly'
+    }
+    options.set_capability('bstack:options', bstack_options)
+    context.driver = webdriver.Remote(command_executor=url, options=options)
+    context.app = Application(context.driver)
+    context.driver.set_window_size(1920, 1080)
+    context.driver.implicitly_wait(4)
+    context.driver.wait = WebDriverWait(context.driver, 10)
 
 
 
     #### Mobile emulation ####
 
-    mobile_emulation = {
-
-       "deviceName": "Pixel 5", }
-
-    chrome_options = webdriver.ChromeOptions()
-
-    chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
-
-    context.driver = webdriver.Chrome(
-
-     options=chrome_options
-
-    )
-##
-
-    context.driver.maximize_window()
-    context.driver.implicitly_wait(4)
-    context.driver.wait = WebDriverWait(context.driver, 10)
-    context.app = Application(context.driver)
+#     mobile_emulation = {
+#
+#        "deviceName": "Pixel 5", }
+#
+#     chrome_options = webdriver.ChromeOptions()
+#
+#     chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+#
+#     context.driver = webdriver.Chrome(
+#
+#      options=chrome_options
+#
+#     )
+# ##
+#
+#     context.driver.maximize_window()
+#     context.driver.implicitly_wait(4)
+#     context.driver.wait = WebDriverWait(context.driver, 10)
+#     context.app = Application(context.driver)
 
 
 def before_scenario(context, scenario):
